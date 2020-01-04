@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>create-servlet-webpage | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用eclipse创建一个Dynamic Web Project,这次参考的是《深入体验Java Web开发内幕》这本书所以，名字就叫做 ExperienceDeeplyJavaWeb 然后修改project的properties下的Default output folder,其实就是java编译后的classes，说来奇怪，我的eclipse不显示classes…，创建后在同目录下重新创建会跳出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="create-servlet-webpage">
+<meta property="og:url" content="http:&#x2F;&#x2F;marsforever.com&#x2F;2017&#x2F;07&#x2F;11&#x2F;create-servlet-webpage&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用eclipse创建一个Dynamic Web Project,这次参考的是《深入体验Java Web开发内幕》这本书所以，名字就叫做 ExperienceDeeplyJavaWeb 然后修改project的properties下的Default output folder,其实就是java编译后的classes，说来奇怪，我的eclipse不显示classes…，创建后在同目录下重新创建会跳出">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-05-17T14:34:30.249Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://marsforever.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-create-servlet-webpage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/11/create-servlet-webpage/" class="article-date">
+  <time datetime="2017-07-10T16:18:35.000Z" itemprop="datePublished">2017-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      create-servlet-webpage
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用eclipse创建一个Dynamic Web Project,这次参考的是《深入体验Java Web开发内幕》这本书所以，名字就叫做 ExperienceDeeplyJavaWeb</p>
+<p>然后修改project的properties下的Default output folder,其实就是java编译后的classes，说来奇怪，我的eclipse不显示classes…，创建后在同目录下重新创建会跳出已创建…</p>
+<p>HelloServlet.java如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Ch4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 从HttpServlet类的帮助文档中复制service方法的声明部分可避免书写错误</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		PrintWriter out = response.getWriter();</span><br><span class="line">		out.println(<span class="string">"&lt;html&gt;"</span>);</span><br><span class="line">		out.println(<span class="string">"&lt;font size=30 color=black&gt;MarsForever&lt;/font&gt;&lt;br&gt;"</span>);</span><br><span class="line">		out.println(<span class="string">"&lt;marquee&gt;"</span> + <span class="keyword">new</span> java.util.Date() + <span class="string">"&lt;/marquee&gt;"</span>);</span><br><span class="line">		out.println(<span class="string">"&lt;/html&gt;"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在WebContent/WEB-INF下创建web.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>AnyName<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>Ch4.HelloServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">			AnyName</span><br><span class="line">		<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">			/demo/hello.html</span><br><span class="line">		<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后运行tomcat，打开</p>
+<p><a href="http://localhost:8080/ExperienceDeeplyJavaWeb/demo/hello.html" target="_blank" rel="noopener">http://localhost:8080/ExperienceDeeplyJavaWeb/demo/hello.html</a></p>
+<p>会出现上面写的内容</p>
+<p>要点</p>
+<p><servlet-name>指定了类名（包括包），<servlet-name>package.classname<servlet-name></p>
+<p></servlet-mapping>下的<url-pattern>可以指定任意的url地址。</p>
+<p>但是<servlet-name>要与<servlet>下的<servlet-name>一致，否则会出现以下的错误。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">SEVERE: A child container failed during start</span><br><span class="line">java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.ExecutionException</span>: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: Failed to start component [StandardEngine[Catalina]<span class="variable">.StandardHost</span>[localhost]<span class="variable">.StandardContext</span>[/ExperienceDeeplyJavaWeb]]</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.FutureTask</span><span class="variable">.report</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.FutureTask</span><span class="variable">.get</span>(Unknown Source)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span><span class="variable">.startInternal</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1122</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardHost</span><span class="variable">.startInternal</span>(StandardHost<span class="variable">.java</span>:<span class="number">819</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span>$StartChild<span class="variable">.call</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1574</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span>$StartChild<span class="variable">.call</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1564</span>)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.FutureTask</span><span class="variable">.run</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.ThreadPoolExecutor</span><span class="variable">.runWorker</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.ThreadPoolExecutor</span>$Worker<span class="variable">.run</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.lang</span><span class="variable">.Thread</span><span class="variable">.run</span>(Unknown Source)</span><br><span class="line">Caused by: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: Failed to start component [StandardEngine[Catalina]<span class="variable">.StandardHost</span>[localhost]<span class="variable">.StandardContext</span>[/ExperienceDeeplyJavaWeb]]</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">154</span>)</span><br><span class="line">	... <span class="number">6</span> more</span><br><span class="line">Caused by: java<span class="variable">.lang</span><span class="variable">.IllegalArgumentException</span>: Servlet mapping specifies an unknown servlet name AAnyName</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardContext</span><span class="variable">.addServletMapping</span>(StandardContext<span class="variable">.java</span>:<span class="number">3384</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardContext</span><span class="variable">.addServletMapping</span>(StandardContext<span class="variable">.java</span>:<span class="number">3363</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.deploy</span><span class="variable">.WebXml</span><span class="variable">.configureContext</span>(WebXml<span class="variable">.java</span>:<span class="number">1438</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.ContextConfig</span><span class="variable">.webConfig</span>(ContextConfig<span class="variable">.java</span>:<span class="number">1357</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.ContextConfig</span><span class="variable">.configureStart</span>(ContextConfig<span class="variable">.java</span>:<span class="number">889</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.ContextConfig</span><span class="variable">.lifecycleEvent</span>(ContextConfig<span class="variable">.java</span>:<span class="number">386</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleSupport</span><span class="variable">.fireLifecycleEvent</span>(LifecycleSupport<span class="variable">.java</span>:<span class="number">117</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.fireLifecycleEvent</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">90</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardContext</span><span class="variable">.startInternal</span>(StandardContext<span class="variable">.java</span>:<span class="number">5479</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	... <span class="number">6</span> more</span><br><span class="line"></span><br><span class="line">Sep <span class="number">02</span>, <span class="number">2017</span> <span class="number">11</span>:<span class="number">49</span>:<span class="number">09</span> PM org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span> startInternal</span><br><span class="line">SEVERE: A child container failed during start</span><br><span class="line">java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.ExecutionException</span>: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: Failed to start component [StandardEngine[Catalina]<span class="variable">.StandardHost</span>[localhost]]</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.FutureTask</span><span class="variable">.report</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.FutureTask</span><span class="variable">.get</span>(Unknown Source)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span><span class="variable">.startInternal</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1122</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardEngine</span><span class="variable">.startInternal</span>(StandardEngine<span class="variable">.java</span>:<span class="number">300</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardService</span><span class="variable">.startInternal</span>(StandardService<span class="variable">.java</span>:<span class="number">443</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardServer</span><span class="variable">.startInternal</span>(StandardServer<span class="variable">.java</span>:<span class="number">739</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.Catalina</span><span class="variable">.start</span>(Catalina<span class="variable">.java</span>:<span class="number">693</span>)</span><br><span class="line">	at sun<span class="variable">.reflect</span><span class="variable">.NativeMethodAccessorImpl</span><span class="variable">.invoke0</span>(Native Method)</span><br><span class="line">	at sun<span class="variable">.reflect</span><span class="variable">.NativeMethodAccessorImpl</span><span class="variable">.invoke</span>(Unknown Source)</span><br><span class="line">	at sun<span class="variable">.reflect</span><span class="variable">.DelegatingMethodAccessorImpl</span><span class="variable">.invoke</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.lang</span><span class="variable">.reflect</span><span class="variable">.Method</span><span class="variable">.invoke</span>(Unknown Source)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.Bootstrap</span><span class="variable">.start</span>(Bootstrap<span class="variable">.java</span>:<span class="number">294</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.Bootstrap</span><span class="variable">.main</span>(Bootstrap<span class="variable">.java</span>:<span class="number">428</span>)</span><br><span class="line">Caused by: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: Failed to start component [StandardEngine[Catalina]<span class="variable">.StandardHost</span>[localhost]]</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">154</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span>$StartChild<span class="variable">.call</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1574</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span>$StartChild<span class="variable">.call</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1564</span>)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.FutureTask</span><span class="variable">.run</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.ThreadPoolExecutor</span><span class="variable">.runWorker</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.util</span><span class="variable">.concurrent</span><span class="variable">.ThreadPoolExecutor</span>$Worker<span class="variable">.run</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.lang</span><span class="variable">.Thread</span><span class="variable">.run</span>(Unknown Source)</span><br><span class="line">Caused by: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: A child container failed during start</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span><span class="variable">.startInternal</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1130</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardHost</span><span class="variable">.startInternal</span>(StandardHost<span class="variable">.java</span>:<span class="number">819</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	... <span class="number">6</span> more</span><br><span class="line"></span><br><span class="line">Sep <span class="number">02</span>, <span class="number">2017</span> <span class="number">11</span>:<span class="number">49</span>:<span class="number">09</span> PM org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.Catalina</span> start</span><br><span class="line">SEVERE: The required Server component failed to start so Tomcat is unable to start.</span><br><span class="line">org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: Failed to start component [StandardServer[<span class="number">8005</span>]]</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">154</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.Catalina</span><span class="variable">.start</span>(Catalina<span class="variable">.java</span>:<span class="number">693</span>)</span><br><span class="line">	at sun<span class="variable">.reflect</span><span class="variable">.NativeMethodAccessorImpl</span><span class="variable">.invoke0</span>(Native Method)</span><br><span class="line">	at sun<span class="variable">.reflect</span><span class="variable">.NativeMethodAccessorImpl</span><span class="variable">.invoke</span>(Unknown Source)</span><br><span class="line">	at sun<span class="variable">.reflect</span><span class="variable">.DelegatingMethodAccessorImpl</span><span class="variable">.invoke</span>(Unknown Source)</span><br><span class="line">	at java<span class="variable">.lang</span><span class="variable">.reflect</span><span class="variable">.Method</span><span class="variable">.invoke</span>(Unknown Source)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.Bootstrap</span><span class="variable">.start</span>(Bootstrap<span class="variable">.java</span>:<span class="number">294</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.startup</span><span class="variable">.Bootstrap</span><span class="variable">.main</span>(Bootstrap<span class="variable">.java</span>:<span class="number">428</span>)</span><br><span class="line">Caused by: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: Failed to start component [StandardService[Catalina]]</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">154</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardServer</span><span class="variable">.startInternal</span>(StandardServer<span class="variable">.java</span>:<span class="number">739</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	... <span class="number">7</span> more</span><br><span class="line">Caused by: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: Failed to start component [StandardEngine[Catalina]]</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">154</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardService</span><span class="variable">.startInternal</span>(StandardService<span class="variable">.java</span>:<span class="number">443</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	... <span class="number">9</span> more</span><br><span class="line">Caused by: org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.LifecycleException</span>: A child container failed during start</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.ContainerBase</span><span class="variable">.startInternal</span>(ContainerBase<span class="variable">.java</span>:<span class="number">1130</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.core</span><span class="variable">.StandardEngine</span><span class="variable">.startInternal</span>(StandardEngine<span class="variable">.java</span>:<span class="number">300</span>)</span><br><span class="line">	at org<span class="variable">.apache</span><span class="variable">.catalina</span><span class="variable">.util</span><span class="variable">.LifecycleBase</span><span class="variable">.start</span>(LifecycleBase<span class="variable">.java</span>:<span class="number">150</span>)</span><br><span class="line">	... <span class="number">11</span> more</span><br></pre></td></tr></table></figure>
+
+<p>其中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalArgumentException: Servlet mapping specifies an unknown servlet name AAnyName</span><br></pre></td></tr></table></figure>
+
+<p>提示无法找到相对应的servlet name “AAnyName”<a id="more"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://marsforever.com/2017/07/11/create-servlet-webpage/" data-id="ck4z7xail0004v8qfg7ls6p5s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/03/%E5%85%B3%E4%BA%8E%E9%98%85%E8%AF%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于阅读
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/04/trouble-hexo/">trouble-hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/11/aws/">aws</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/%E5%85%B3%E4%BA%8Eimmutable%E5%92%8Cmutable%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AF%94%E8%BE%83/">关于immutable和mutable类型的比较</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/18/%E5%85%B3%E4%BA%8E%E6%AD%BB%E4%BA%A1/">关于死亡</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 MarsForever<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
