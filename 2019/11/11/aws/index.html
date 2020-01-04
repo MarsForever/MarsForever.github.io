@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>aws | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="AWS Associate Solution的考试范围 Security（安全），Identity &amp;amp; Compliance（认证和协议），Compute（计算），Network &amp;amp; Content Delivery（网络和内容交付），Storage（存储），Databases（数据库）， AWS Global Infrasturcture（AWS全球基础设施）  Identity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="aws">
+<meta property="og:url" content="http:&#x2F;&#x2F;marsforever.com&#x2F;2019&#x2F;11&#x2F;11&#x2F;aws&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="AWS Associate Solution的考试范围 Security（安全），Identity &amp;amp; Compliance（认证和协议），Compute（计算），Network &amp;amp; Content Delivery（网络和内容交付），Storage（存储），Databases（数据库）， AWS Global Infrasturcture（AWS全球基础设施）  Identity">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-24T22:25:25.202Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://marsforever.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-aws" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/11/aws/" class="article-date">
+  <time datetime="2019-11-10T15:11:16.000Z" itemprop="datePublished">2019-11-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      aws
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AWS Associate Solution的考试范围</p>
+<p>Security（安全），Identity &amp; Compliance（认证和协议），Compute（计算），Network &amp; Content Delivery（网络和内容交付），Storage（存储），Databases（数据库），</p>
+<p>AWS Global Infrasturcture（AWS全球基础设施）</p>
+<ul>
+<li>Identity Access Manangement Consists Of The Following<ul>
+<li>Users（用户）</li>
+<li>Groups（组）</li>
+<li>Roles（角色）</li>
+<li>Policies（策略）</li>
+</ul>
+</li>
+</ul>
+<p>NAT Gateway<br>ネットワークアドレス変換 (NAT) ゲートウェイを使用して、プライベートサブネットのインスタンスからはインターネットや他の AWS サービスに接続できるが、<br>インターネットからはこれらのインスタンスとの接続を開始できないようにすることができます。</p>
+<p>AWS Lambda 関数スケーリング<br>最初のバーストの後、関数の同時実行数は、1 分ごとにさらに 500 インスタンス増加します。</p>
+<p>冗長化<br>・multi az<br>・data center<br>・ec2(autoscaling)<br>・managed service(s3 DynamoDB Lambda)</p>
+<p>设计（1-2备案）<br>・计算 lambda ec2<br>・网络 cloudfront route53（故障转移方式）ELB（round robin）<br>・存储 s3,EFS，EC2(Snapshot)<br>・数据 rds(multi az),DynamoDB,Redshift,backup<br>・中间件服务 ElasticCache(放在rds前) AutoScaling</p>
+<p>ELB AutoScaling</p>
+<p>本地环境和aws环境连接<br>direct connection<br>vpn<br>通过网络</p>
+<h2 id="計算"><a href="#計算" class="headerlink" title="計算"></a>計算</h2><h2 id="ネットワーク"><a href="#ネットワーク" class="headerlink" title="ネットワーク"></a>ネットワーク</h2><ul>
+<li>Route53<ul>
+<li>シンプルルーティングポリシー<ul>
+<li>ドメイン特定</li>
+<li>インターネットトラフィック</li>
+<li>ランダムな順序で再帰的リゾルバーに返す</li>
+</ul>
+</li>
+<li>フェイルオーバールーティングポリシー<ul>
+<li>アクティブ・パッシブフェイルオーバー</li>
+<li>位置ルーティングポリシー</li>
+</ul>
+</li>
+<li>ユーザの場所に基づく<ul>
+<li>地理的近接性ルーティングポリシー</li>
+<li>リソースの場所に基づく</li>
+</ul>
+</li>
+<li>レイテンシールーティングポリシー<ul>
+<li>複数の場所に基づく</li>
+<li>レイテンシーが最も小さいリソース</li>
+</ul>
+</li>
+<li>複数値回答ルーティングポリシー<ul>
+<li>ランダムに選ぶ</li>
+</ul>
+</li>
+<li>最大8つの正常なレコード</li>
+<li>加重ルーティングポリシー<ul>
+<li>指定した比率で複数のリソース</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Elastic Load Balancer<ul>
+<li>Classic Load Balancer<ul>
+<li>パスに基づいてリクエストを転送するルールを持つリスナーを作成できます。これは、パスルーティングと呼ばれます。マイクロサービスを実行している場合、パスルーティングを使用して1つのALBで複数のバックエンドサービスにトラフィックをルーティングすることができます。</li>
+</ul>
+</li>
+<li>Application Load Balancer<ul>
+<li>複数のバックエンドサービスにトラフィックをルーティングする際はバックエンドサービスの数に合わせてCLBを設置する必要があり、構成が複雑になってしまいます。</li>
+</ul>
+</li>
+<li>Network Load Balancer <ul>
+<li>OSIモデルの第 4 層で機能します。毎秒数百万のリクエストを処理できます。ロードバランサーは、接続リクエストを受信すると、デフォルトルールのターゲットグループからターゲットを選択します。リスナー構成で指定されたポート上の選択したターゲットへの TCP 接続を開こうとします。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="セキュリティ"><a href="#セキュリティ" class="headerlink" title="セキュリティ"></a>セキュリティ</h2><ul>
+<li>Amazon Cognito<ul>
+<li>web application mobile application 認証、許可、ユーザ管理</li>
+<li>ユーザー名、パスワードでアサイン</li>
+<li>Facebook,Aamazon,Googleなどのサードパーティでアサイン</li>
+<li>コンポーネント：ユーザーグループ、IDグループ<ul>
+<li>ユーザーグループ：<ul>
+<li>アプリユーザーのサインアップとサインオプションを提供するユーザーディレクトリ</li>
+<li>ユーザーがサインインするための組み込みのカスタマイズ可能なWeb UI</li>
+<li>ユーザーディレクトリとユーザープロファイルの管理</li>
+<li>多要素認証（MFA）などのセキュリティ機能、漏洩した認証情報のチェック、アカウントの乗っ取り保護、電話とEメールによる検証</li>
+<li>カスタマイズされたワークフローとAWS Lambdaトリガーによるユーザー移行</li>
+</ul>
+</li>
+<li>IDプール：AWSの他のサービスに対するアクセスをユーザーに許可する</li>
+<li>別々もしくは一緒に使用が可能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Encryption<ul>
+<li>Client Side Encryption(CSE)はクライアント内で暗合したオブジェクトをS3に登録して、暗号化キーの生成・監理はクライアント側で実行します。</li>
+<li>(SES-S3)</li>
+<li>AWS KMS<ul>
+<li>安全で可用性の高いハードウェアおよびソフトウェアを結合するサービスであり、キーの作成と管理をマネージド型サービスで提供します。</li>
+</ul>
+</li>
+<li>Server-Side Encryption with Customer-Provided Encryption Keys (SSE-C)<br>  暗号化をAWSではなく、ユーザである我々が管理する鍵によって行えるようになりました。<h2 id="データベース"><a href="#データベース" class="headerlink" title="データベース"></a>データベース</h2></li>
+</ul>
+</li>
+<li>RDS<br>RDSは一般的なリレーショナルデータベースとしてデータを中長期処理するために利用されます。データ処理を行って、短期間でデータを廃棄するといったライフサイクル管理には向いていません。</li>
+<li>Aurora<ul>
+<li>リードレプリカを最大15個設置</li>
+<li>読込処理性能を向上させることが出来ます。</li>
+</ul>
+</li>
+<li>DynamoDB<ul>
+<li>DynamoDB Accelerator (DAX)<ul>
+<li>ノード:DAX クラスターは、1 つのみのプライマリノードと、0～9 個のリードレプリカノードで構成されます。</li>
+<li>簡単にリードレプリカを増やせない</li>
+<li>DynamoDB Accelerator(DAX) を有効化することで、1 秒あたりのリクエスト数が数百万件になる場合でも、ミリセカンドからマイクロセカンドへの最大 10 倍のパフォーマンス向上を実現します。キャッシュを利用しているため特定のデータへの処理が高い場合などに中長期的な性能向上のために有効な対策。コストが高い</li>
+<li>グローバルテーブル は、マルチリージョンにマルチマスターデータベースをデプロイするための完全マネージド型のソリューションです。これにより、高い冗長化を実現することができます</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Analytics"><a href="#Analytics" class="headerlink" title="Analytics"></a>Analytics</h2><ul>
+<li>Amazon Athena<ul>
+<li>Amazon Athena はインタラクティブなクエリサービスで、Amazon S3 内のデータを標準 SQL を使用して簡単に分析できます。Athena はサーバーレスなので、インフラストラクチャの管理は不要です。実行したクエリに対してのみ料金が発生します。</li>
+<li>Athena は初期状態で AWS Glue データカタログと統合されており、さまざまなサービスでメタデータの統合リポジトリを作成できます。<h3 id="Migration"><a href="#Migration" class="headerlink" title="Migration"></a>Migration</h3></li>
+</ul>
+</li>
+<li>AWS Server Migration Service<ul>
+<li>WS Server Migration Service は、オンプレミスの VMware vSphere、Microsoft Hyper-V/SCVMM、または Azure 仮想マシンの AWS クラウドへの移行を自動化します。AWS SMS は、サーバー仮想マシンをクラウドホストの Amazon マシンイメージ (AMI) として段階的にレプリケートし、Amazon EC2 にデプロイします。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>AWS Glue<ul>
+<li>AWS Glue は抽出、変換、ロード (ETL) を行う完全マネージド型のサービスで、お客様の分析用データの準備とロードを簡単にします。</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-sns.html" target="_blank" rel="noopener">AWS Lambda を Amazon SNS に使用する</a></p>
+<ul>
+<li>Lambda 関数を使用して、Amazon Simple Notification Service 通知を処理することができます。</li>
+<li>Amazon SNS は、トピックに送信されるメッセージのターゲットとして Lambda 関数をサポートしています。</li>
+<li>関数は、同じアカウントまたは他の AWS アカウントのトピックにサブスクライブ(subscribe)できます。</li>
+</ul>
+<p><a href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/lambda-send-email-ses/" target="_blank" rel="noopener">Lambda と Amazon SES を使用して E メールを送信するステップ</a></p>
+<ul>
+<li>Lambda が API 呼び出しを実行するための AWS Identity and Access Management (IAM) アクセス許可</li>
+<li>検証済みの Amazon SES ID (ドメインまたは E メールアドレス)。</li>
+<li>Amazon SES を介して E メールを送信するためのロジックを備えた Lambda 関数。</li>
+</ul>
+<h2 id="Application-amp-Integration"><a href="#Application-amp-Integration" class="headerlink" title="Application &amp; Integration"></a>Application &amp; Integration</h2><ul>
+<li><p>SQS</p>
+<ul>
+<li>SQS消息队列</li>
+<li>先进先出</li>
+<li>按用收费</li>
+</ul>
+</li>
+<li><p>SWF</p>
+<ul>
+<li>SWF（simple　 workflow）</li>
+<li>发起者，决策者，参与者，domains</li>
+</ul>
+</li>
+<li><p>swf和sqs的区别</p>
+<ul>
+<li>swf面向任务，sqs面向消息</li>
+<li>swf只执行一次不回重复；sqs可能会被处理多次</li>
+</ul>
+</li>
+<li><p>SES</p>
+<ul>
+<li>Amazon SESデジタルマーケティング担当者やアプリケーション開発者がマーケティング、通知、トランザクションに関するEメールを送信できるように設計された、クラウドベースのEメール送信サービスです。</li>
+</ul>
+</li>
+<li><p>SNS</p>
+<ul>
+<li>Amazon SNS を利用すれば、アプリケーションは「プッシュ」メカニズムを使用して、複数のサブスクライバーにタイミングが重要なメッセージを送信することができます。そのため、更新を定期的に確認したり、「ポーリング」したりする必要性がなくなります。<h2 id="HA-Architecure"><a href="#HA-Architecure" class="headerlink" title="HA Architecure"></a>HA Architecure</h2><ul>
+<li>CloudFormation</li>
+</ul>
+</li>
+<li>リソースのモデル化およびセットアップに役立つサービスです。リソース管理に割く時間を減らし、AWS で実行するアプリケーションにさらに注力できるようになります。<h3 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h3></li>
+<li>EC2<ul>
+<li>EBS<ul>
+<li>のスナップショット取得のライフサイクルポリシーを設定できます。Amazon Data Lifecycle Manager (Amazon DLM)を使用するとEBSのバックアップであるスナップショットの作成、保存、削除を自動化できます。 定時バックアップをスケジュールして貴重なデータを保護します。</li>
+</ul>
+</li>
+<li>CloudWatch<ul>
+<li>CloudWatchエージェントを動かし､ログをCloudWatch Logsに転送することで、EC2インスタンスのログ管理を実施することができます。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><ul>
+<li>Elastic Beanstalk<ul>
+<li>開発されたウェブアプリケーションとウェブサービスをデプロイし、自動的にデプロイメントの詳細 (容量のプロビジョニング、負荷分散、Auto Scaling、アプリケーションのヘルスモニタリングなど) を処理します。</li>
+<li>アプリケーションを実行しているインフラストラクチャについて学習することなく、AWS クラウドでアプリケーションをすばやくデプロイし、管理できます。Elastic Beanstalk は、選択肢を狭めたり制御を制限したりすることなく、管理の複雑さを軽減します。アプリケーションをアップロードするだけで、Elastic Beanstalk が自動的に容量のプロビジョニング、負荷分散、拡張、およびアプリケーションの状態のモニタリングといった詳細を処理します。</li>
+</ul>
+</li>
+<li>OpsWorks<ul>
+<li>OpsworksはChef や Puppet のマネージド型インスタンスを利用できるようになる構成管理サービスです。Chef や Puppet は、コードを使用してサーバーの構成を自動化できるようにするためのオートメーションプラットフォームです。OpsWorks では、サーバーのパッチ適用、アップデート、バックアップが自動的に実行され、Chef サーバーが管理されます。OpsWorks を使用すると、独自の設定管理システムを運用したり、そのインフラストラクチャを管理したりする必要がなくなります。</li>
+</ul>
+</li>
+<li>Elastic Beanstalk vs OpsWorks<ul>
+<li>OpsWorksはインフラ管理をメインにした環境設定の仕組みです。したがって、サーバーのパッチ適用、アップデート、バックアップの自動化というユースケースからOpsWorksと特定することができます。一方でElastic BeanStalkはウェブアプリケーションの展開に利用する仕組みです。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>aws lambda<br>34% 回復性の高いアーキテクチャを設計する<br>24% パフォーマンスに優れたアーキテクチャを定義する<br>26% セキュアなアプリケーションおよびアーキテクチャを規定する<br>10% コストに最適化アーキテクチャを設計する<br>6% オペレーショナルエクセレンスを備えたアーキテクチャを定義する</p>
+<p>IAM是全球化的服务</p>
+<p>新建用户没有任何的权限</p>
+<p>疑問点<br>aws sample question<br>sample 1<br>sample 9</p>
+<p>udemyAWS 認定ソリューションアーキテクト アソシエイト模擬試験問題集（5回分325問）<br>1回分<br>q4<br>データ処理停止時のイベントトリガーにより、モバイルにメールが通知される。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://marsforever.com/2019/11/11/aws/" data-id="ck4z4ncnx000183qfefie54u5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/11/aws/">aws</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/10/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 MarsForever<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
